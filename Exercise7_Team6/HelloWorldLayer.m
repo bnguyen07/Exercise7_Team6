@@ -22,6 +22,10 @@ int ballY;
 @synthesize ball;
 @synthesize paddle1;
 @synthesize paddle2;
+bool ballUp;
+bool ballDown;
+bool ballRight;
+bool ballLeft;
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -63,6 +67,10 @@ int ballY;
       [self performSelector:@selector(moveBall:) withObject:ball afterDelay:.005];
 
 
+      ballUp = arc4random() % 2 ? true:false;
+      if (ballUp) ballDown = false;
+      ballRight = arc4random() %2 ? true:false;
+      if (ballRight) ballLeft = false;
 		
 		
 		
@@ -118,23 +126,30 @@ int ballY;
 }
 
 -(void)update:(ccTime)dt{
-   [self performSelector:@selector(moveBall:) withObject:ball afterDelay:.005];
+   [self performSelector:@selector(moveBall:) withObject:ball afterDelay:1.0];
 }
 
 - (void)moveBall:(ccTime)dt{
    //birdImage.position = ccp(image1.position.x + 100 * dt, birdImage.position.y);
+
    CGPoint point = ball.position;
    double xSpeed = 0, ySpeed = 0;
-   if(abs(point.x - ballX) <= 1)
-      ballX = (arc4random() % 768) - 25;
-   
-   if(abs(point.y - ballY) <= 1)
-      ballY = (arc4random() % (1004 / 3)) + (1004/3 * 2) - 19;
+
+   if (ballRight)
+     ballX += 1;
+   else
+      ballX -= 1;
+   if (ballUp)
+      ballY += 1;
+   else
+      ballY -= 1;
    
    xSpeed = (ball.position.x - ballX);
    ySpeed = (ball.position.y - ballY);
-   point.x -= xSpeed * dt;
-   point.y -= ySpeed * dt;
+//   point.x += xSpeed * dt;
+//   point.y += ySpeed * dt;
+   point.x = ballX;
+   point.y = ballY;
    
    NSLog(@"%f", xSpeed);
    NSLog(@"%f", ySpeed);
