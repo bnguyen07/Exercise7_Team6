@@ -60,6 +60,8 @@ int ballY;
 		
 		// add the label as a child to this Layer
       [self addChild:ball];
+      [self performSelector:@selector(moveBall:) withObject:ball afterDelay:.005];
+
 
 		
 		
@@ -74,45 +76,49 @@ int ballY;
 		// to avoid a retain-cycle with the menuitem and blocks
 		__block id copy_self = self;
 		
-		// Achievement Menu Item using blocks
-		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-			
-			
-			GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
-			achivementViewController.achievementDelegate = copy_self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:achivementViewController animated:YES];
-			
-			[achivementViewController release];
-		}];
-		
-		// Leaderboard Menu Item using blocks
-		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-			
-			
-			GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-			leaderboardViewController.leaderboardDelegate = copy_self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
-			
-			[leaderboardViewController release];
-		}];
-
-		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
-		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
-		
-		// Add the menu to the layer
-		[self addChild:menu];
+//		// Achievement Menu Item using blocks
+//		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
+//			
+//			
+//			GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
+//			achivementViewController.achievementDelegate = copy_self;
+//			
+//			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+//			
+//			[[app navController] presentModalViewController:achivementViewController animated:YES];
+//			
+//			[achivementViewController release];
+//		}];
+//		
+//		// Leaderboard Menu Item using blocks
+//		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
+//			
+//			
+//			GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
+//			leaderboardViewController.leaderboardDelegate = copy_self;
+//			
+//			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+//			
+//			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
+//			
+//			[leaderboardViewController release];
+//		}];
+//
+//		
+//		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
+//		
+//		[menu alignItemsHorizontallyWithPadding:20];
+//		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+//		
+//		// Add the menu to the layer
+//		[self addChild:menu];
 
 	}
 	return self;
+}
+
+-(void)update:(ccTime)dt{
+   [self performSelector:@selector(moveBall:) withObject:ball afterDelay:.005];
 }
 
 - (void)moveBall:(ccTime)dt{
