@@ -15,9 +15,12 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
-   CCSprite *paddle1;
-   CCSprite *paddle2;
-   CCSprite *ball;
+   CCSprite *_paddle1;
+   CCSprite *_paddle2;
+   CCSprite *_ball;
+   CCAction *_ballMoveAction;
+   CCAction *_paddle1MoveAction;
+   CCAction *_paddle2MoveAction;
    int score;
 }
 
@@ -26,5 +29,9 @@
 @property (nonatomic, retain) CCSprite *paddle1;
 @property (nonatomic, retain) CCSprite *paddle2;
 @property (nonatomic, retain) CCSprite *ball;
+@property (nonatomic, retain) CCAction *ballMoveAction;
+@property (nonatomic, retain) CCAction *paddle1MoveAction;
+@property (nonatomic, retain) CCAction *paddle2MoveAction;
+
 
 @end

@@ -51,16 +51,14 @@ int ballY;
 		//CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
       ball = [CCSprite spriteWithFile:@"GreenBall.png"];
       ball.position = ccp(150,150);
-
+      //[ball setTextureRect:CGRectMake(10, 10, ball.contentSize.width/2, ball.contentSize.height/2)];
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 	
 		// position the label on the center of the screen
-//		label.position =  ccp( size.width /2 , size.height/2 );
 		
 		// add the label as a child to this Layer
-//		[self addChild: label];
       [self addChild:ball];
 
 		
@@ -115,6 +113,26 @@ int ballY;
 
 	}
 	return self;
+}
+
+- (void)moveBall:(ccTime)dt{
+   //birdImage.position = ccp(image1.position.x + 100 * dt, birdImage.position.y);
+   CGPoint point = ball.position;
+   double xSpeed = 0, ySpeed = 0;
+   if(abs(point.x - ballX) <= 1)
+      ballX = (arc4random() % 768) - 25;
+   
+   if(abs(point.y - ballY) <= 1)
+      ballY = (arc4random() % (1004 / 3)) + (1004/3 * 2) - 19;
+   
+   xSpeed = (ball.position.x - ballX);
+   ySpeed = (ball.position.y - ballY);
+   point.x -= xSpeed * dt;
+   point.y -= ySpeed * dt;
+   
+   NSLog(@"%f", xSpeed);
+   NSLog(@"%f", ySpeed);
+   ball.position = point;
 }
 
 // on "dealloc" you need to release all your retained objects
