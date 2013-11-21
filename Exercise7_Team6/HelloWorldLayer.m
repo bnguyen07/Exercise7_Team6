@@ -17,6 +17,11 @@
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
+int ballX;
+int ballY;
+@synthesize ball;
+@synthesize paddle1;
+@synthesize paddle2;
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -40,18 +45,24 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
+      score = 0;
 		
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
+		//CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
+      ball = [CCSprite spriteWithFile:@"GreenBall.png"];
+      ball.position = ccp(150,150);
+
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 	
 		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
+//		label.position =  ccp( size.width /2 , size.height/2 );
 		
 		// add the label as a child to this Layer
-		[self addChild: label];
+//		[self addChild: label];
+      [self addChild:ball];
+
 		
 		
 		
