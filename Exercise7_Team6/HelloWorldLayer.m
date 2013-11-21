@@ -55,6 +55,11 @@ bool ballLeft;
 		//CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
       ball = [CCSprite spriteWithFile:@"GreenBall.png"];
       ball.position = ccp(150,150);
+      paddle1 = [CCSprite spriteWithFile:@"paddle.png"];
+      paddle1.position = ccp(0, 0);
+      paddle2 = [CCSprite spriteWithFile:@"paddle.png"];
+      paddle2.position = ccp(470, 0);
+
       //[ball setTextureRect:CGRectMake(10, 10, ball.contentSize.width/2, ball.contentSize.height/2)];
 
 		// ask director for the window size
@@ -64,7 +69,9 @@ bool ballLeft;
 		
 		// add the label as a child to this Layer
       [self addChild:ball];
-      [self performSelector:@selector(moveBall:) withObject:ball afterDelay:.005];
+      [self addChild:paddle1];
+      [self addChild:paddle2];
+//      [self performSelector:@selector(moveBall:) withObject:ball afterDelay:.005];
 
 
       ballUp = arc4random() % 2 ? true:false;
