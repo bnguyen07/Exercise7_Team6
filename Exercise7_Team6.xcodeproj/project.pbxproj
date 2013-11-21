@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EC33DFD183E95BD0012C187 /* GreenBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EC33DFC183E95BD0012C187 /* GreenBall.png */; };
 		D3D86D89183E932700A7F222 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D86D88183E932700A7F222 /* QuartzCore.framework */; };
 		D3D86D8B183E932700A7F222 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D86D8A183E932700A7F222 /* OpenGLES.framework */; };
 		D3D86D8D183E932700A7F222 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D86D8C183E932700A7F222 /* OpenAL.framework */; };
@@ -144,6 +145,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7EC33DFC183E95BD0012C187 /* GreenBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenBall.png; sourceTree = "<group>"; };
 		D3D86D85183E932700A7F222 /* Exercise7_Team6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercise7_Team6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D86D88183E932700A7F222 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3D86D8A183E932700A7F222 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -501,6 +503,7 @@
 		D3D86D9D183E932700A7F222 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7EC33DFC183E95BD0012C187 /* GreenBall.png */,
 				D3D86D9E183E932700A7F222 /* Default.png */,
 				D3D86DA0183E932700A7F222 /* Default@2x.png */,
 				D3D86DA2183E932700A7F222 /* Default-568h@2x.png */,
@@ -936,6 +939,7 @@
 				D3D86DAB183E932700A7F222 /* Icon-Small.png in Resources */,
 				D3D86DA7183E932700A7F222 /* Icon-72.png in Resources */,
 				D3D86D9F183E932700A7F222 /* Default.png in Resources */,
+				7EC33DFD183E95BD0012C187 /* GreenBall.png in Resources */,
 				D3D86DA9183E932700A7F222 /* Icon-Small-50.png in Resources */,
 				D3D86DB4183E932700A7F222 /* iTunesArtwork in Resources */,
 				D3D86DAD183E932700A7F222 /* Icon-Small@2x.png in Resources */,
@@ -1073,7 +1077,7 @@
 		D3D86F36183E932900A7F222 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1085,7 +1089,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1094,7 +1098,7 @@
 		D3D86F37183E932900A7F222 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1104,7 +1108,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1114,6 +1118,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1135,6 +1140,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Exercise7_Team6/Prefix.pch;
@@ -1171,6 +1177,7 @@
 				D3D86F3A183E932900A7F222 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
